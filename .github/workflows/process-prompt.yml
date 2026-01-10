@@ -22,7 +22,7 @@ jobs:
       # Step 2: Read and display Markdown prompt
       - name: Generate Issue Summary
         run: |
-            for file in prompts/*.md; do
+          for file in prompts/*.md; do
             echo "-------------------------------"
             echo "Processing file: $file"
             # Extract Title
@@ -35,4 +35,4 @@ jobs:
             echo "Instructions:"
             awk '/## Instructions/{flag=1;next}/##/{flag=0}flag' "$file"
             echo "-------------------------------"
-            done
+          done
