@@ -20,9 +20,19 @@ jobs:
         uses: actions/checkout@v3
 
       # Step 2: Read and display Markdown prompt
-      - name: Read prompt file
+      - name: Generate Issue Summary
         run: |
-          echo "Listing all Markdown prompt files:"
-          ls prompts/
-          echo "Displaying first prompt content:"
-          cat prompts/*.md
+            for file in prompts/*.md; do
+            echo "-------------------------------"
+            echo "Processing file: $file"
+            # Extract Title
+            TITLE=$(grep '^# ' "$file" | sed 's/# //')
+            echo "Issue Title: $TITLE"
+            # Extract Context
+            echo "Context:"
+            awk '/## Context/{flag=1;next}/## Instructions/{flag=0}flag' "$file"
+            # Extract Instructions
+            echo "Instructions:"
+            awk '/## Instructions/{flag=1;next}/##/{flag=0}flag' "$file"
+            echo "-------------------------------"
+            done
