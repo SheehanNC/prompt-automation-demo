@@ -25,14 +25,30 @@ jobs:
           for file in prompts/*.md; do
             echo "-------------------------------"
             echo "Processing file: $file"
+
             # Extract Title
             TITLE=$(grep '^# ' "$file" | sed 's/# //')
             echo "Issue Title: $TITLE"
+
             # Extract Context
             echo "Context:"
             awk '/## Context/{flag=1;next}/## Instructions/{flag=0}flag' "$file"
+
             # Extract Instructions
             echo "Instructions:"
             awk '/## Instructions/{flag=1;next}/##/{flag=0}flag' "$file"
+
+            # Simulate Assignment
+            ASSIGNEE="developer1"
+            echo "Assigned to: $ASSIGNEE"
+
+            # Simulate Priority
+            PRIORITY=$(grep -i "Priority:" "$file" | sed 's/- Priority: //')
+            if [ -z "$PRIORITY" ]; then
+              PRIORITY="Medium"
+            fi
+            echo "Priority: $PRIORITY"
+
             echo "-------------------------------"
           done
+        
