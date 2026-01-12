@@ -53,6 +53,7 @@ Users want a dark mode for better night-time usage.
 ```
 ## Example Output
 
+```
 Issue Title: Feature Request
 Context:
 Users want a dark mode for better night-time usage.
@@ -65,4 +66,4 @@ Instructions:
 Assigned to: developer1
 Priority: Medium
 
-
+```
