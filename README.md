@@ -1,4 +1,4 @@
-# prompt-automation-demo
+# Prompt-automation-demo
 Demo project for AI prompt-driven workflow automation
 
 ## Overview
