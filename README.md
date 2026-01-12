@@ -53,7 +53,7 @@ Users want a dark mode for better night-time usage.
 ```
 ## Example Output
 
-```
+```markdown
 Issue Title: Feature Request
 Context:
 Users want a dark mode for better night-time usage.
